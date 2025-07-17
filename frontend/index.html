@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Criptomonedas</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- Incluir Chart.js desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Visualizador de Criptomonedas</h1>
+    </header>
+
+    <main class="container">
+        <section class="search-section card">
+            <h2>Buscar Criptomoneda</h2>
+            <div class="input-group">
+                <input type="text" id="coinSearchInput" list="coinList" placeholder="Ej: Bitcoin, Ethereum..." autocomplete="off">
+                <datalist id="coinList"></datalist>
+                <button id="searchButton">Buscar</button>
+            </div>
+            <div class="input-group days-selector">
+                <label for="daysSelect">Historial (días):</label>
+                <select id="daysSelect">
+                    <option value="7">7 Días</option>
+                    <option value="30" selected>30 Días</option>
+                    <option value="90">90 Días</option>
+                    <option value="365">1 Año</option>
+                    <option value="max">Máx.</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="coin-details-section card">
+            <h2>Detalles de la Criptomoneda</h2>
+            <div id="coinInfo">
+                <p><strong>Moneda:</strong> <span id="coinName">---</span></p>
+                <p><strong>Símbolo:</strong> <span id="coinSymbol">---</span></p>
+                <p><strong>Precio Actual (USD):</strong> <span id="currentPrice">---</span></p>
+                <!-- Otros detalles como capitalización de mercado, volumen, etc., se podrían añadir aquí -->
+            </div>
+        </section>
+
+        <section class="chart-section card">
+            <h2>Gráfico de Precios Históricos</h2>
+            <div class="chart-container">
+                <canvas id="priceChart"></canvas>
+            </div>
+            <p id="errorMessage" class="error-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Visualizador de Criptomonedas | Datos de <a href="https://www.coingecko.com/es/api" target="_blank">CoinGecko API</a></p>
+    </footer>
+
+    <!-- Tu script principal de JavaScript -->
+    <script src="static/js/main.js"></script>
+</body>
+</html>

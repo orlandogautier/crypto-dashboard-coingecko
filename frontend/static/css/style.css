@@ -1,0 +1,352 @@
+/* Colores base */
+:root {
+    --primary-blue: #007bff;
+    --dark-blue: #0056b3;
+    --light-blue: #e0f2ff;
+    --accent-green: #28a745;
+    --accent-red: #dc3545;
+    --text-dark: #343a40;
+    --text-light: #f8f9fa;
+    --bg-light: #f8f9fa;
+    --bg-card: #ffffff;
+    --border-light: #dee2e6;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+header {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-medium);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: var(--dark-blue);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start; /* Alinea las tarjetas en la parte superior */
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-light);
+    flex: 1;
+    min-width: 320px; /* Ancho mínimo para móviles */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.search-section {
+    flex-basis: 100%; /* Ocupa todo el ancho */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px; /* Espacio extra en la parte inferior */
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 700px;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    white-space: nowrap;
+    font-size: 1.1em;
+}
+
+#coinSearchInput,
+#daysSelect {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 1.05em;
+    min-width: 180px;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#coinSearchInput:focus,
+#daysSelect:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px var(--light-blue);
+    outline: none;
+}
+
+#searchButton {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+#searchButton:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+.days-selector {
+    margin-top: 10px;
+}
+
+.coin-details-section {
+    flex-basis: calc(45% - 15px); /* Ajuste para el gap */
+    min-width: 350px; /* Asegura que no se haga demasiado pequeño */
+}
+
+#coinInfo p {
+    margin: 12px 0;
+    font-size: 1.15em;
+    color: var(--text-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed var(--border-light);
+}
+
+#coinInfo p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+#coinInfo strong {
+    color: var(--dark-blue);
+    flex-shrink: 0; /* Evita que el strong se encoja */
+    margin-right: 10px;
+}
+
+#coinInfo span {
+    font-weight: 500;
+    text-align: right; /* Alinea el valor a la derecha */
+    flex-grow: 1; /* Permite que el span ocupe el espacio restante */
+}
+
+.chart-section {
+    flex-basis: calc(55% - 15px); /* Ocupa el resto del ancho */
+    min-width: 400px; /* Asegura un buen tamaño para el gráfico */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Altura fija para el contenedor del gráfico */
+    margin: 0 auto;
+}
+
+.error-message {
+    color: var(--accent-red);
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    display: none; /* Oculto por defecto, JS lo muestra */
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 25px 20px;
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 0 -4px 8px var(--shadow-medium);
+}
+
+footer a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--light-blue);
+    text-decoration: underline;
+}
+
+/* --- Media Queries para Responsividad --- */
+
+/* Tabletas y pantallas pequeñas de laptop */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+        gap: 20px;
+    }
+
+    .card {
+        padding: 25px;
+        min-width: calc(50% - 10px); /* Dos columnas en tablet */
+    }
+
+    .coin-details-section {
+        flex-basis: calc(50% - 10px);
+    }
+
+    .chart-section {
+        flex-basis: calc(50% - 10px);
+        height: auto; /* Permite que la altura se ajuste al contenido */
+    }
+
+    .chart-container {
+        height: 350px; /* Ajuste de altura para tabletas */
+    }
+
+    h1 {
+        font-size: 2.4em;
+    }
+
+    h2 {
+        font-size: 1.7em;
+    }
+}
+
+/* Teléfonos y pantallas muy pequeñas */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 15px;
+        gap: 25px;
+    }
+
+    .card {
+        min-width: 95%; /* Casi todo el ancho */
+        max-width: 450px; /* Limita el ancho en el centro */
+        padding: 20px;
+    }
+
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    #coinSearchInput,
+    #daysSelect,
+    #searchButton {
+        width: 100%;
+        min-width: unset;
+        padding: 12px 15px;
+    }
+
+    .chart-container {
+        height: 300px; /* Altura para móviles */
+    }
+
+    #coinInfo p {
+        font-size: 1em;
+        flex-direction: column; /* Apila el label y el valor */
+        align-items: flex-start;
+        border-bottom: none; /* Quita la línea divisoria si se apilan */
+        padding-bottom: 0;
+        margin-bottom: 15px;
+    }
+
+    #coinInfo p:last-child {
+        margin-bottom: 0;
+    }
+
+    #coinInfo strong {
+        margin-bottom: 5px; /* Espacio entre label y valor apilados */
+        margin-right: 0;
+    }
+
+    #coinInfo span {
+        text-align: left;
+    }
+}
+
+/* Pequeños ajustes para pantallas muy estrechas */
+@media (max-width: 480px) {
+    .card {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+}
+
