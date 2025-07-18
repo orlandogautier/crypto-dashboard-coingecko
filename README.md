@@ -106,8 +106,6 @@ crypto_dashboard/
 Vista de escritorio del Visualizador de Criptomonedas
 ![Vista de escritorio](Screenshot.png)
 
-Vista móvil del Visualizador de Criptomonedas
-
 Posibles Mejoras Futuras
 Más Detalles de Criptomonedas: Añadir capitalización de mercado, volumen de 24h, cambio porcentual, etc.
 
