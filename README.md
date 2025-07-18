@@ -104,7 +104,7 @@ crypto_dashboard/
 
 📸 Capturas de Pantalla
 Vista de escritorio del Visualizador de Criptomonedas
-![Vista de escritorio](images/desktop-screenshot.png)
+![Vista de escritorio](Screenshot.png)
 
 Vista móvil del Visualizador de Criptomonedas
 
